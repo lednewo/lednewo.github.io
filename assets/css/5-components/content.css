@@ -1,0 +1,396 @@
+/* =========================================================
+   5-COMPONENTS / CONTENT — Blocos que apresentam conteúdo:
+   cards, ficha do aplicativo, lojas, chips, números, redes.
+   ========================================================= */
+
+/* ---------- Cards de diferenciais ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.15rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.9rem 1.7rem 1.7rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--moss);
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.card:hover::before {
+  opacity: .55;
+}
+
+/* Rótulo do card: os três blocos são qualidades, não etapas,
+   por isso levam um nome e não uma numeração. */
+.card-label {
+  display: block;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--olive);
+  margin-bottom: .9rem;
+}
+
+.card h3 {
+  margin-bottom: .6rem;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: .95rem;
+  margin: 0;
+}
+
+/* ---------- Card do aplicativo (lista da home) ----------
+   O card inteiro é o link: um alvo só, sem zona morta. */
+.app-list {
+  display: grid;
+  gap: 1rem;
+  max-width: 720px;
+}
+
+.app-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.3rem;
+  text-decoration: none;
+  color: inherit;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.3rem 1.5rem;
+  box-shadow: var(--shadow);
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.app-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--river);
+  box-shadow: var(--shadow-lg);
+}
+
+.app-card-icon {
+  width: 76px;
+  height: 76px;
+  border-radius: 18px;
+  border: 1px solid var(--line-soft);
+  flex: none;
+}
+
+.app-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  min-width: 0;
+}
+
+.app-card-name {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  line-height: 1.2;
+  letter-spacing: -.014em;
+}
+
+.app-card-desc {
+  color: var(--muted);
+  font-size: .93rem;
+  line-height: 1.5;
+}
+
+.app-card-more {
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--river);
+  margin-top: .45rem;
+}
+
+.app-card-arrow {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  color: var(--muted);
+  transition: color .2s ease, transform .2s ease;
+}
+
+.app-card:hover .app-card-arrow {
+  color: var(--river);
+  transform: translateX(3px);
+}
+
+@media (max-width: 520px) {
+  .app-card {
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    padding: 1.1rem 1.2rem;
+  }
+
+  .app-card-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+  }
+
+  .app-card-arrow {
+    display: none;
+  }
+}
+
+/* ---------- Ficha do aplicativo (página do app) ---------- */
+.app {
+  display: grid;
+  grid-template-columns: minmax(190px, 264px) 1fr;
+  gap: clamp(2rem, 4vw, 3.4rem);
+  align-items: start;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  padding: clamp(1.7rem, 3.5vw, 2.9rem);
+  box-shadow: var(--shadow);
+}
+
+.app-visual img {
+  border-radius: 22px;
+  border: 1px solid var(--line-soft);
+  width: 100%;
+  height: auto;
+  box-shadow: var(--shadow-lg);
+}
+
+.app-tag {
+  display: inline-block;
+  font-size: .73rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--moss);
+  background: var(--moss-wash);
+  border: 1px solid var(--line);
+  padding: .3rem .75rem;
+  border-radius: 999px;
+  margin: 0 0 .95rem;
+}
+
+.app-name {
+  font-family: var(--serif);
+  font-size: clamp(1.85rem, 3.2vw, 2.4rem);
+  margin: 0 0 .85rem;
+}
+
+.app-desc {
+  color: var(--ink-2);
+  max-width: 58ch;
+}
+
+.app-features {
+  list-style: none;
+  margin: 1.6rem 0 2rem;
+  display: grid;
+  gap: .68rem;
+}
+
+.app-features li {
+  position: relative;
+  padding-left: 1.6rem;
+  font-size: .95rem;
+  color: var(--muted);
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+.app-features li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .62em;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--olive);
+  transform: rotate(45deg);
+}
+
+@media (max-width: 900px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .app-visual {
+    max-width: 200px;
+  }
+}
+
+/* ---------- Links das lojas ---------- */
+.store-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+
+.store {
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  text-decoration: none;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: .6rem 1.1rem .6rem .95rem;
+  background: var(--surface-2);
+  color: var(--ink);
+  transition: border-color .2s ease, background-color .2s ease, transform .2s ease;
+}
+
+.store:hover {
+  transform: translateY(-1px);
+  border-color: var(--river);
+  background: var(--river-wash);
+}
+
+.store svg {
+  width: 23px;
+  height: 23px;
+  flex: none;
+  color: var(--ink);
+}
+
+.store-label {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  font-weight: 600;
+  font-size: .98rem;
+  line-height: 1.2;
+}
+
+.store-label small {
+  font-weight: 500;
+  font-size: .68rem;
+  letter-spacing: .05em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+@media (max-width: 520px) {
+  .store-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .store {
+    justify-content: flex-start;
+  }
+}
+
+/* ---------- Chips de tecnologia ---------- */
+.chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: 1.9rem 0 0;
+}
+
+.chips li {
+  font-size: .83rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: .35rem .85rem;
+}
+
+/* ---------- Números ---------- */
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 1.3rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+
+.stat strong {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--river);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat span {
+  font-size: .87rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* ---------- Redes e contato ---------- */
+.social {
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+  text-decoration: none;
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.2rem;
+  color: var(--ink);
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.social:hover {
+  transform: translateY(-2px);
+  border-color: var(--moss);
+  box-shadow: var(--shadow);
+}
+
+.social svg {
+  width: 24px;
+  height: 24px;
+  flex: none;
+  color: var(--moss);
+}
+
+.social-label {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  font-weight: 600;
+  font-size: .95rem;
+  line-height: 1.3;
+}
+
+.social-label small {
+  font-weight: 500;
+  font-size: .7rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}

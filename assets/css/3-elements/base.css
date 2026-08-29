@@ -1,0 +1,53 @@
+/* =========================================================
+   3-ELEMENTS — Elementos HTML sem classe: tipografia base
+   ========================================================= */
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: -.014em;
+  line-height: 1.14;
+  margin: 0;
+  text-wrap: balance;
+}
+
+h2 {
+  font-size: clamp(1.95rem, 3.7vw, 2.7rem);
+}
+
+h3 {
+  font-size: 1.2rem;
+  line-height: 1.35;
+}
+
+p {
+  margin: 0 0 1.05rem;
+  text-wrap: pretty;
+}
+
+em {
+  font-style: italic;
+  color: var(--river);
+}
+
+@media (max-width: 520px) {
+  body {
+    font-size: 16px;
+  }
+}

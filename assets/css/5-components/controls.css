@@ -1,0 +1,394 @@
+/* =========================================================
+   5-COMPONENTS / CONTROLS — Tudo que o visitante aciona:
+   botões, navegação, troca de idioma, tema, menu, skip link.
+   ========================================================= */
+
+/* ---------- Skip link ---------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--river);
+  color: var(--on-river);
+  padding: 10px 16px;
+  border-radius: 0 0 8px 0;
+  text-decoration: none;
+}
+
+.skip-link:focus-visible {
+  left: 0;
+}
+
+/* ---------- Link de volta (páginas internas) ---------- */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  text-decoration: none;
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 2.2rem;
+  transition: color .2s ease;
+}
+
+.back-link svg {
+  width: 17px;
+  height: 17px;
+  flex: none;
+  transition: transform .2s ease;
+}
+
+.back-link:hover {
+  color: var(--river);
+}
+
+.back-link:hover svg {
+  transform: translateX(-3px);
+}
+
+/* ---------- Botões ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  font-family: var(--sans);
+  font-size: .95rem;
+  font-weight: 600;
+  padding: .82rem 1.5rem;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease,
+    box-shadow .2s ease, transform .2s ease;
+}
+
+.btn-solid {
+  background: var(--river);
+  color: var(--on-river);
+  box-shadow: 0 8px 20px -16px rgba(27, 35, 30, .8);
+}
+
+.btn-solid:hover {
+  background: var(--river-hover);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  border-color: var(--line);
+  color: var(--ink-2);
+  background: transparent;
+}
+
+.btn-ghost:hover {
+  border-color: var(--moss);
+  color: var(--moss);
+  background: var(--moss-wash);
+}
+
+.btn-sm {
+  padding: .55rem 1.05rem;
+  font-size: .88rem;
+}
+
+.btn-lg {
+  padding: 1rem 1.9rem;
+  font-size: 1rem;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+/* ---------- Ações de contato ---------- */
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+}
+
+.contact-actions .btn svg {
+  flex: none;
+}
+
+/* O endereço e o botão de copiar são um bloco só, sem quebra entre eles */
+.email-action {
+  display: inline-flex;
+  align-items: stretch;
+  gap: .4rem;
+  max-width: 100%;
+}
+
+.email-address {
+  min-width: 0;
+}
+
+.copy-btn {
+  width: 46px;
+  flex: none;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .2s ease, color .2s ease, background-color .2s ease;
+}
+
+.copy-btn:hover {
+  border-color: var(--river);
+  color: var(--river);
+  background: var(--river-wash);
+}
+
+.copy-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.copy-btn .icon-check {
+  display: none;
+}
+
+.copy-btn.is-copied {
+  border-color: var(--river);
+  color: var(--river);
+  background: var(--river-wash);
+}
+
+.copy-btn.is-copied .icon-copy {
+  display: none;
+}
+
+.copy-btn.is-copied .icon-check {
+  display: block;
+}
+
+/* Reserva a altura da mensagem para o conteúdo não pular ao copiar */
+.copy-status {
+  min-height: 1.5rem;
+  margin: .9rem 0 0;
+  font-size: .88rem;
+  color: var(--river);
+}
+
+@media (max-width: 520px) {
+  .contact-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-actions .btn {
+    justify-content: center;
+  }
+}
+
+/* ---------- Navegação ---------- */
+.nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 1.7rem;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: .94rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  position: relative;
+  transition: color .2s ease;
+}
+
+.nav a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 1.5px;
+  background: var(--river);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+}
+
+.nav a:not(.btn):hover {
+  color: var(--river);
+}
+
+.nav a:not(.btn):hover::after,
+.nav a.is-current::after {
+  transform: scaleX(1);
+}
+
+.nav a.is-current {
+  color: var(--river);
+}
+
+/* ---------- Troca de idioma ---------- */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: .28rem;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: .3rem .62rem;
+  background: var(--surface);
+}
+
+.lang-switch button {
+  border: 0;
+  background: none;
+  padding: .05rem .2rem;
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: color .2s ease;
+}
+
+.lang-switch button:hover {
+  color: var(--ink);
+}
+
+.lang-switch button.is-active {
+  color: var(--river);
+}
+
+/* ---------- Botões quadrados do cabeçalho ---------- */
+.theme-toggle,
+.menu-toggle {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink-2);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .2s ease, color .2s ease, background-color .2s ease;
+}
+
+.theme-toggle:hover,
+.menu-toggle:hover {
+  border-color: var(--river);
+  color: var(--river);
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* O ícone mostra o tema em vigor, não o destino do clique */
+.theme-toggle .icon-moon {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+  display: block;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon {
+    display: block;
+  }
+
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun {
+    display: none;
+  }
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4.5px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 17px;
+  height: 1.8px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform .25s ease, opacity .2s ease;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(6.3px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-6.3px) rotate(-45deg);
+}
+
+/* ---------- Navegação em telas pequenas ---------- */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .header-inner {
+    position: relative;
+  }
+
+  .nav {
+    position: absolute;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    padding: .5rem max(24px, env(safe-area-inset-left)) 1.2rem;
+    margin: 0;
+    box-shadow: var(--shadow);
+    max-height: calc(100dvh - var(--header-h));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    display: none;
+  }
+
+  .nav.is-open {
+    display: flex;
+  }
+
+  .nav a {
+    padding: .85rem 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .nav a:not(.btn)::after {
+    display: none;
+  }
+
+  .nav-cta {
+    margin-top: 1rem;
+    border-bottom: 0;
+    justify-content: center;
+  }
+}

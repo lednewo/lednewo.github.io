@@ -1,0 +1,113 @@
+/* =========================================================
+   1-SETTINGS — Design tokens e temas
+   Nenhuma regra CSS aqui, só variáveis.
+
+   Paleta: verdes de mangue e rio do Marajó, sobre papel de
+   sedimento. O oliva é a única cor quente — existe para fazer
+   ponte com o ícone terracota do Paracauari.
+   ========================================================= */
+
+:root {
+  color-scheme: light;
+
+  /* Superfícies */
+  --bg: #f2f4ef;
+  --bg-tint: #e8ece3;
+  --surface: #fbfcf9;
+  --surface-2: #f7f9f4;
+
+  /* Texto — contraste medido sobre --bg / --bg-tint / --surface */
+  --ink: #1b231e;
+  --ink-2: #3e4a43;
+  --muted: #5f6a63;
+
+  /* Traços */
+  --line: #dbe1d6;
+  --line-soft: #e6ebe0;
+
+  /* Acentos */
+  --river: #2f5d4a;
+  --river-hover: #24493a;
+  --river-wash: rgba(47, 93, 74, .08);
+  --moss: #4a6f57;
+  --moss-wash: rgba(74, 111, 87, .08);
+  --olive: #75733f;
+
+  --on-river: #f4f8f4;
+
+  /* Elevação */
+  --shadow: 0 1px 2px rgba(27, 35, 30, .03), 0 10px 28px -20px rgba(27, 35, 30, .20);
+  --shadow-lg: 0 2px 6px rgba(27, 35, 30, .03), 0 24px 56px -30px rgba(27, 35, 30, .26);
+
+  /* Forma e medida */
+  --radius: 18px;
+  --radius-sm: 12px;
+  --wrap: 1120px;
+  --header-h: 74px;
+
+  /* Tipografia */
+  --serif: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+  --sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ---------- Tema escuro ----------
+   Declarado duas vezes de propósito: pela preferência do sistema
+   (quando o visitante não escolheu nada) e pelo data-theme do botão. */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --bg: #121815;
+    --bg-tint: #172019;
+    --surface: #1a231e;
+    --surface-2: #1f2924;
+
+    --ink: #e7ece7;
+    --ink-2: #bfc9c1;
+    --muted: #8d978f;
+
+    --line: #2b352f;
+    --line-soft: #232c27;
+
+    --river: #8fc4a5;
+    --river-hover: #a9d6bb;
+    --river-wash: rgba(143, 196, 165, .10);
+    --moss: #7faa8d;
+    --moss-wash: rgba(127, 170, 141, .10);
+    --olive: #b8b271;
+
+    --on-river: #121815;
+
+    --shadow: 0 1px 2px rgba(0, 0, 0, .30), 0 10px 28px -20px rgba(0, 0, 0, .60);
+    --shadow-lg: 0 2px 6px rgba(0, 0, 0, .32), 0 24px 56px -30px rgba(0, 0, 0, .70);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #121815;
+  --bg-tint: #172019;
+  --surface: #1a231e;
+  --surface-2: #1f2924;
+
+  --ink: #e7ece7;
+  --ink-2: #bfc9c1;
+  --muted: #8d978f;
+
+  --line: #2b352f;
+  --line-soft: #232c27;
+
+  --river: #8fc4a5;
+  --river-hover: #a9d6bb;
+  --river-wash: rgba(143, 196, 165, .10);
+  --moss: #7faa8d;
+  --moss-wash: rgba(127, 170, 141, .10);
+  --olive: #b8b271;
+
+  --on-river: #121815;
+
+  --shadow: 0 1px 2px rgba(0, 0, 0, .30), 0 10px 28px -20px rgba(0, 0, 0, .60);
+  --shadow-lg: 0 2px 6px rgba(0, 0, 0, .32), 0 24px 56px -30px rgba(0, 0, 0, .70);
+}

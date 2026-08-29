@@ -1,0 +1,8 @@
+# Ferramentas locais (o .claude/skills tem um symlink que não deve ir para o repositório)
+.claude/
+skills-lock.json
+
+# Sistema operacional
+Thumbs.db
+desktop.ini
+.DS_Store

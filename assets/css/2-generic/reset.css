@@ -1,0 +1,54 @@
+/* =========================================================
+   2-GENERIC — Reset e normalizações que valem para tudo
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 22px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Alvos de toque: sem atraso de duplo-toque e com realce intencional */
+a,
+button,
+summary,
+[role="button"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: var(--river-wash);
+}
+
+:focus-visible {
+  outline: 2.5px solid var(--river);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* <main> recebe foco pelo skip link, mas não deve desenhar anel */
+main:focus {
+  outline: none;
+}
