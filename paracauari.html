@@ -24,6 +24,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
@@ -175,6 +176,11 @@
   </footer>
 
   <!-- Scripts: cada arquivo só define seu módulo; main.js inicializa, por último -->
+  <!-- GSAP: versão fixa. Se a CDN não responder, o reveal.js cai no
+       IntersectionObserver e a página continua inteira. -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+
   <script src="assets/js/i18n/dictionary.js" defer></script>
   <script src="assets/js/i18n/translator.js" defer></script>
   <script src="assets/js/modules/theme.js" defer></script>

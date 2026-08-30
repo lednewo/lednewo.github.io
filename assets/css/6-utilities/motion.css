@@ -3,7 +3,9 @@
    Última camada da cascata: pode sobrescrever qualquer regra.
    ========================================================= */
 
-/* Entrada suave aplicada pelo JS (assets/js/modules/reveal.js) */
+/* Entrada suave — caminho de reserva do reveal.js, usado só quando o
+   GSAP não carrega. A classe nunca vem do HTML: quem a coloca é o JS,
+   então uma falha de script deixa a página visível, não em branco. */
 .reveal {
   opacity: 0;
   transform: translateY(14px);
