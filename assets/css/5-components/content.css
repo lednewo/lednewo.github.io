@@ -252,6 +252,7 @@
 }
 
 .store {
+  justify-content: center;
   display: inline-flex;
   align-items: center;
   gap: .7rem;
@@ -301,7 +302,7 @@
   }
 
   .store {
-    justify-content: flex-start;
+    justify-content: center;
   }
 }
 
