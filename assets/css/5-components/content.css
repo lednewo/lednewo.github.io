@@ -416,31 +416,15 @@
   margin-bottom: clamp(.9rem, 2vh, 1.5rem);
 }
 
-/* Telas baixas (notebooks e janelas curtas): comprime o ritmo vertical
-   em vez de empurrar os botões para fora da dobra. */
+/* Telas baixas (notebooks e janelas curtas). */
 @media (max-height: 900px) {
   .app {
     padding: clamp(1.2rem, 2.4vw, 1.8rem);
     gap: clamp(1.4rem, 3vw, 2.4rem);
   }
-
-  .app-features {
-    margin: 1.1rem 0 1.3rem;
-    gap: .42rem;
-  }
-
-  .app-features li {
-    font-size: .9rem;
-    line-height: 1.45;
-  }
-
-  .app-desc {
-    font-size: .96rem;
-  }
 }
 
-/* Uma coluna: o ícone grande e a lista de seis itens sozinhos já
-   comeriam a dobra do celular. */
+/* Uma coluna: o ícone em tamanho cheio sozinho já comeria a dobra. */
 @media (max-width: 900px) {
   .app-page {
     padding-block: 1.1rem;
@@ -448,53 +432,11 @@
 
   .app {
     gap: 1.2rem;
-    padding: 1.3rem;
+    padding: 1.4rem;
   }
 
   .app-visual {
-    max-width: 104px;
+    max-width: 132px;
     margin-inline: auto;
-  }
-
-  .app-name {
-    margin-bottom: .5rem;
-  }
-
-  .app-desc {
-    font-size: .88rem;
-    line-height: 1.5;
-  }
-
-  .app-features {
-    margin: .8rem 0 1rem;
-    gap: .3rem;
-  }
-
-  .app-features li {
-    font-size: .82rem;
-    line-height: 1.4;
-    padding-left: 1.25rem;
-  }
-
-  .app-features li::before {
-    width: 6px;
-    height: 6px;
-  }
-
-  /* Os dois botões lado a lado poupam a altura de um bloco inteiro. */
-  .app-page .store-links {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: .5rem;
-  }
-
-  .app-page .store {
-    flex: 1 1 0;
-    min-width: 0;
-    padding: .55rem .7rem;
-  }
-
-  .app-page .store-label {
-    font-size: .84rem;
   }
 }
