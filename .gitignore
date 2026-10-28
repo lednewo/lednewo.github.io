@@ -6,3 +6,7 @@ skills-lock.json
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Plano e ferramentas de verificação (só locais)
+PLANO-REDESIGN.md
+tools/

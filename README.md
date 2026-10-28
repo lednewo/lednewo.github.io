@@ -12,7 +12,6 @@ O JS é dividido em módulos com namespace `window.WA` — sem bundler e sem
 ```
 index.html
 paracauari.html
-tools/verify-redesign.mjs      validação no Chrome, sem pacotes npm
 .nojekyll
 assets/
   css/
@@ -74,32 +73,6 @@ Os efeitos de mouse funcionam apenas com ponteiro preciso e hover em desktop.
 O título é redividido após cada troca de idioma, preservando o itálico.
 Sem GSAP, a revelação usa IntersectionObserver e um failsafe de visibilidade.
 Sem JavaScript, o conteúdo e os links principais continuam visíveis.
-
-## Validar localmente
-
-Em terminais separados, inicie o servidor e o Chrome headless:
-
-```bash
-python3 -m http.server 8765 --bind 127.0.0.1
-```
-
-```bash
-google-chrome --headless=new --blink-settings=primaryPointerType=4,availablePointerTypes=4,primaryHoverType=2,availableHoverTypes=2 --remote-debugging-port=9222 --user-data-dir=/tmp/redesign-chrome about:blank
-```
-
-Com Node.js 22 ou superior, execute:
-
-```bash
-node tools/verify-redesign.mjs
-```
-
-O teste usa o protocolo do Chrome sem instalar dependências. Gera capturas das
-duas páginas em 1366px e 390px nos dois temas, além de `report.json`, em
-`/tmp/redesign-captures`. Verifica overflow, erros JS, fontes, tema persistido,
-PT/EN, menu móvel, contadores, efeitos de mouse, pausa do marquee, movimento
-reduzido, fallback com CDN bloqueada e contraste dos tokens sobre superfícies
-sólidas, vidro e hover. Também confere larguras de 320, 768, 820 e 900px.
-URL e pasta de saída podem ser passadas como argumentos.
 
 ## Publicar no GitHub Pages
 
