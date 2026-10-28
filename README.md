@@ -53,6 +53,14 @@ assets/
 | Revelação ao rolar e contagem dos números | `assets/js/modules/reveal.js` |
 | Keyframes e movimento reduzido | `assets/css/6-utilities/motion.css` |
 
+### Prévia ao compartilhar o link
+
+- **Página inicial:** `assets/img/og-wendelalves.png` (1200×630, com o nome).
+- **Página de cada app:** sempre o **ícone do app** (`assets/img/<app>-512.png`,
+  512×512), com `twitter:card` = `summary`. Ao criar a página de um app novo,
+  copie o bloco `og:*` / `twitter:*` do `paracauari.html` e troque URL, título,
+  descrição, imagem e texto alternativo.
+
 > Texto marcado com `data-i18n` no HTML é **substituído** pelo dicionário no
 > carregamento. Editar só o HTML não muda nada — altere `dictionary.js`
 > (nos dois blocos, `pt` e `en`).
