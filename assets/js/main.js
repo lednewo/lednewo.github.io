@@ -18,5 +18,6 @@
   WA.clipboard.init();
   WA.year.init();
   WA.i18n.init();
+  WA.effects.init();
   WA.reveal.init();
 })();

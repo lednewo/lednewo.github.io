@@ -9,8 +9,8 @@
   left: -9999px;
   top: 0;
   z-index: 100;
-  background: var(--river);
-  color: var(--on-river);
+  background: var(--accent);
+  color: var(--on-accent);
   padding: 10px 16px;
   border-radius: 0 0 8px 0;
   text-decoration: none;
@@ -41,7 +41,7 @@
 }
 
 .back-link:hover {
-  color: var(--river);
+  color: var(--accent);
 }
 
 .back-link:hover svg {
@@ -64,17 +64,17 @@
   cursor: pointer;
   white-space: nowrap;
   transition: background-color .2s ease, color .2s ease, border-color .2s ease,
-    box-shadow .2s ease, transform .2s ease;
+    box-shadow .2s ease, transform .2s ease, translate .2s ease;
 }
 
 .btn-solid {
-  background: var(--river);
-  color: var(--on-river);
+  background: var(--accent);
+  color: var(--on-accent);
   box-shadow: 0 8px 20px -16px rgba(27, 35, 30, .8);
 }
 
 .btn-solid:hover {
-  background: var(--river-hover);
+  background: var(--accent-hover);
   transform: translateY(-1px);
 }
 
@@ -85,9 +85,9 @@
 }
 
 .btn-ghost:hover {
-  border-color: var(--moss);
-  color: var(--moss);
-  background: var(--moss-wash);
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+  background: var(--accent-wash);
 }
 
 .btn-sm {
@@ -144,9 +144,9 @@
 }
 
 .copy-btn:hover {
-  border-color: var(--river);
-  color: var(--river);
-  background: var(--river-wash);
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-wash);
 }
 
 .copy-btn svg {
@@ -159,9 +159,9 @@
 }
 
 .copy-btn.is-copied {
-  border-color: var(--river);
-  color: var(--river);
-  background: var(--river-wash);
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-wash);
 }
 
 .copy-btn.is-copied .icon-copy {
@@ -177,7 +177,7 @@
   min-height: 1.5rem;
   margin: .9rem 0 0;
   font-size: .88rem;
-  color: var(--river);
+  color: var(--accent);
 }
 
 @media (max-width: 520px) {
@@ -215,14 +215,14 @@
   right: 0;
   bottom: -6px;
   height: 1.5px;
-  background: var(--river);
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform .25s ease;
 }
 
 .nav a:not(.btn):hover {
-  color: var(--river);
+  color: var(--accent);
 }
 
 .nav a:not(.btn):hover::after,
@@ -231,7 +231,7 @@
 }
 
 .nav a.is-current {
-  color: var(--river);
+  color: var(--accent);
 }
 
 /* ---------- Troca de idioma ---------- */
@@ -263,7 +263,7 @@
 }
 
 .lang-switch button.is-active {
-  color: var(--river);
+  color: var(--accent);
 }
 
 /* ---------- Botões quadrados do cabeçalho ---------- */
@@ -285,8 +285,8 @@
 
 .theme-toggle:hover,
 .menu-toggle:hover {
-  border-color: var(--river);
-  color: var(--river);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .theme-toggle svg {
@@ -294,27 +294,21 @@
   height: 18px;
 }
 
-/* O ícone mostra o tema em vigor, não o destino do clique */
-.theme-toggle .icon-moon {
-  display: none;
+/* O ícone acompanha o tema efetivo, inclusive sem JavaScript. */
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+:root[data-theme="light"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="light"] .theme-toggle .icon-moon { display: none; }
+
+.nav .nav-cta {
+  color: var(--ink);
+  border: 1px solid transparent;
+  background: linear-gradient(var(--bg), var(--bg)) padding-box, var(--gradient) border-box;
 }
 
-:root[data-theme="dark"] .theme-toggle .icon-moon {
-  display: block;
-}
-
-:root[data-theme="dark"] .theme-toggle .icon-sun {
-  display: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .theme-toggle .icon-moon {
-    display: block;
-  }
-
-  :root:not([data-theme="light"]) .theme-toggle .icon-sun {
-    display: none;
-  }
+.nav .nav-cta:hover {
+  box-shadow: 0 0 22px var(--accent-wash);
+  color: var(--accent);
 }
 
 .menu-toggle {
@@ -356,13 +350,13 @@
 
   .nav {
     position: absolute;
-    top: var(--header-h);
+    top: 100%;
     left: 0;
     right: 0;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    background: var(--surface);
+    background: var(--bg);
     border-bottom: 1px solid var(--line);
     padding: .5rem max(24px, env(safe-area-inset-left)) 1.2rem;
     margin: 0;

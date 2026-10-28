@@ -8,13 +8,46 @@
    então uma falha de script deixa a página visível, não em branco. */
 .reveal {
   opacity: 0;
-  transform: translateY(14px);
+  transform: translateY(18px) scale(.985);
+  filter: blur(3px);
 }
 
 .reveal.is-visible {
   opacity: 1;
   transform: none;
-  transition: opacity .6s ease, transform .6s cubic-bezier(.22, .8, .3, 1);
+  filter: none;
+  transition: filter .6s ease, opacity .6s ease, transform .6s cubic-bezier(.22, .8, .3, 1);
+}
+
+@keyframes aurora-drift {
+  from { transform: translate3d(-4%, -3%, 0) scale(.92); }
+  to { transform: translate3d(8%, 10%, 0) scale(1.08); }
+}
+@keyframes status-pulse {
+  from { transform: scale(.6); opacity: .65; }
+  to { transform: scale(1.8); opacity: 0; }
+}
+@keyframes tech-scroll {
+  to { transform: translateX(-50%); }
+}
+@keyframes word-enter {
+  from { opacity: 0; transform: translateY(.35em); filter: blur(5px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+.hero-word { display: inline-block; }
+.hero-title.is-entering .hero-word {
+  animation: word-enter .7s both cubic-bezier(.22, .8, .3, 1);
+  animation-delay: calc(var(--word-index) * 55ms);
+}
+/* Cada palavra itálica recebe seu próprio degradê, sem recortar a animação. */
+.hero-title.is-split em { background: none; color: var(--accent); }
+@supports (background-clip: text) {
+  .hero-title.is-split em .hero-word {
+    background: var(--gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -25,12 +58,22 @@
   *,
   *::before,
   *::after {
-    animation-duration: .01ms !important;
+    animation: none !important;
     transition-duration: .01ms !important;
   }
 
   .reveal {
     opacity: 1;
     transform: none;
+    filter: none;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-marquee .marquee-track { width: auto; min-width: 0; transform: none; }
+  .tech-marquee .chips { flex-wrap: wrap; }
+  .tech-marquee .chips[aria-hidden], .tech-marquee .marquee-toggle { display: none; }
+  .hero-word { opacity: 1; transform: none; filter: none; }
+  .btn:hover, .app-card:hover, .social:hover, .store:hover,
+  .back-link:hover svg, .app-card:hover .app-card-arrow { transform: none; }
 }

@@ -16,9 +16,9 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: color-mix(in srgb, var(--bg) 84%, transparent);
-  backdrop-filter: saturate(140%) blur(14px);
-  -webkit-backdrop-filter: saturate(140%) blur(14px);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(140%) blur(24px);
+  -webkit-backdrop-filter: saturate(140%) blur(24px);
   border-bottom: 1px solid transparent;
   transition: border-color .25s ease, box-shadow .25s ease;
 }
@@ -39,6 +39,11 @@
   align-items: center;
   gap: 20px;
   height: var(--header-h);
+  transition: height .25s ease;
+}
+
+.site-header.is-stuck .header-inner {
+  height: 66px;
 }
 
 .brand {
@@ -53,7 +58,7 @@
 .brand-mark {
   width: 30px;
   height: 30px;
-  color: var(--river);
+  color: var(--accent);
   flex: none;
 }
 
@@ -63,7 +68,7 @@
 }
 
 .brand-text {
-  font-family: var(--serif);
+  font-family: var(--heading);
   font-size: 1.1rem;
 }
 
@@ -82,26 +87,78 @@
 
 .hero-pattern {
   position: absolute;
-  /* Sobra em cima e embaixo: o parallax do reveal.js translada esta div,
-     e a folga é o que impede a borda de aparecer. O .hero corta o excesso. */
   inset: -12% 0;
   pointer-events: none;
-  will-change: transform;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%232f5d4a' stroke-width='2' stroke-opacity='.18'%3E%3Cpath d='M10 10h40v40H30V30h10'/%3E%3Cpath d='M110 110H70V70h20v20H80'/%3E%3Cpath d='M70 10h40v40H90V30h-8'/%3E%3Cpath d='M50 110H10V70h20v20h8'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 138px 138px;
-  opacity: .3;
-  -webkit-mask-image: radial-gradient(90% 78% at 80% 4%, #000 0%, transparent 66%);
-  mask-image: radial-gradient(90% 78% at 80% 4%, #000 0%, transparent 66%);
-}
-
-:root[data-theme="dark"] .hero-pattern {
+  background-image: radial-gradient(var(--muted) .8px, transparent .8px);
+  background-size: 24px 24px;
   opacity: .2;
+  -webkit-mask-image: radial-gradient(ellipse at 75% 30%, #000, transparent 72%);
+  mask-image: radial-gradient(ellipse at 75% 30%, #000, transparent 72%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .hero-pattern {
-    opacity: .2;
-  }
+.hero-aurora {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: var(--glow-opacity);
+}
+
+.hero-aurora span {
+  position: absolute;
+  width: min(65vw, 700px);
+  aspect-ratio: 1;
+  top: -55%;
+  right: -5%;
+  border-radius: 50%;
+  /* Radial suave evita filtros gigantes repintando no celular. */
+  background: radial-gradient(circle, var(--accent), transparent 68%);
+  animation: aurora-drift 22s ease-in-out infinite alternate;
+}
+
+.hero-aurora span:nth-child(2) {
+  top: 5%;
+  right: 18%;
+  background: radial-gradient(circle, var(--accent-2), transparent 68%);
+  animation-delay: -9s;
+  animation-duration: 28s;
+}
+
+.hero-aurora span:nth-child(3) {
+  top: -40%;
+  right: 52%;
+  animation-delay: -17s;
+  animation-duration: 32s;
+}
+
+.availability {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .4rem .85rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: .76rem;
+  color: var(--ink-2);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--success);
+  position: relative;
+}
+
+.status-dot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border: 1px solid var(--success);
+  border-radius: inherit;
+  animation: status-pulse 2.8s ease-out infinite;
 }
 
 .hero::after {
@@ -117,11 +174,12 @@
 
 .hero-inner {
   position: relative;
-  max-width: 850px;
+  max-width: var(--wrap);
 }
 
 .hero-title {
-  font-size: clamp(2.4rem, 5.8vw, 4.1rem);
+  font-size: clamp(2.6rem, 5.8vw, 4.8rem);
+  max-width: 960px;
   margin-bottom: 1.5rem;
 }
 
@@ -171,7 +229,7 @@
   font-weight: 600;
   letter-spacing: .15em;
   text-transform: uppercase;
-  color: var(--river);
+  color: var(--accent);
   margin: 0 0 .95rem;
 }
 
@@ -181,6 +239,10 @@
   grid-template-columns: 1.55fr 1fr;
   gap: clamp(2rem, 5vw, 4.5rem);
   align-items: start;
+}
+
+.about-text {
+  min-width: 0;
 }
 
 .about-text h2 {
@@ -236,8 +298,9 @@
 
 /* ---------- Rodapé ---------- */
 .site-footer {
-  border-top: 1px solid var(--line);
-  background: var(--bg-tint);
+  border-top: 1px solid transparent;
+  background: linear-gradient(var(--bg), var(--bg)) padding-box,
+    linear-gradient(90deg, var(--line), var(--accent), var(--accent-2), var(--line)) border-box;
   padding: 2.6rem 0 max(2.6rem, env(safe-area-inset-bottom));
 }
 
@@ -250,7 +313,7 @@
 }
 
 .footer-brand {
-  font-family: var(--serif);
+  font-family: var(--heading);
   font-size: 1.05rem;
   margin: 0;
 }
@@ -271,4 +334,38 @@
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+/* CTA final: base opaca para manter contraste sob o brilho. */
+.contact-panel {
+  max-width: none;
+  padding: clamp(2rem, 6vw, 4.5rem) clamp(1.1rem, 4vw, 3rem) 2rem;
+  border: 1px solid transparent;
+  border-radius: 28px;
+  background: linear-gradient(var(--bg-tint), var(--bg-tint)) padding-box,
+    var(--gradient) border-box;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.contact-panel::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -40% 10% 20%;
+  background: radial-gradient(ellipse, var(--accent-2), transparent 65%);
+  opacity: var(--glow-opacity);
+  pointer-events: none;
+}
+
+@media (max-width: 520px) {
+  .header-inner { gap: .5rem; }
+  .header-tools { margin-left: auto; gap: .35rem; }
+  .brand { gap: .35rem; }
+  .brand-text { font-size: .95rem; }
+  .brand-mark { width: 24px; height: 24px; }
+  .hero-title br { display: none; }
+  .hero-aurora span { width: 100vw; top: -10%; }
+  .email-address { font-size: .8rem; padding-inline: .8rem; }
 }

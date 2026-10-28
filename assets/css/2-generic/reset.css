@@ -39,11 +39,11 @@ button,
 summary,
 [role="button"] {
   touch-action: manipulation;
-  -webkit-tap-highlight-color: var(--river-wash);
+  -webkit-tap-highlight-color: var(--accent-wash);
 }
 
 :focus-visible {
-  outline: 2.5px solid var(--river);
+  outline: 2.5px solid var(--accent);
   outline-offset: 3px;
   border-radius: 6px;
 }

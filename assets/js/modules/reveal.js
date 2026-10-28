@@ -20,9 +20,9 @@ window.WA.reveal = (function () {
   /* ---------- Caminho 2: sem GSAP ---------- */
 
   function fallbackInit() {
-    if (!('IntersectionObserver' in window)) return;
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const targets = document.querySelectorAll('.hero-inner, ' + BLOCKS);
+    const targets = document.querySelectorAll(BLOCKS);
 
     targets.forEach(function (el, i) {
       el.classList.add('reveal');
@@ -37,20 +37,26 @@ window.WA.reveal = (function () {
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    targets.forEach(function (el) { observer.observe(el); });
+    targets.forEach(function (el) {
+      if (el.getBoundingClientRect().top < 0) el.classList.add('is-visible');
+      else observer.observe(el);
+    });
+    // Mesmo failsafe da versão GSAP: nenhum bloco fica escondido indefinidamente.
+    window.setTimeout(function () {
+      targets.forEach(function (el) { el.classList.add('is-visible'); });
+      observer.disconnect();
+    }, 2500);
   }
 
   /* ---------- Caminho 1: com GSAP ---------- */
 
-  /* O hero entra em sequência, de cima para baixo. Animo os filhos
-     diretos, não o texto interno: o i18n troca o innerHTML do h1 na
-     hora de mudar de idioma, e qualquer referência lá dentro morre. */
+  /* O título tem entrada própria no effects.js, refeita após o i18n. */
   function heroIntro() {
     const hero = document.querySelector('.hero-inner');
     if (!hero) return;
 
     gsap.timeline({ defaults: { ease: 'power2.out' } })
-      .from(hero.children, {
+      .from(hero.querySelectorAll(':scope > :not(.hero-title)'), {
         autoAlpha: 0,
         y: 20,
         duration: .8,
@@ -83,7 +89,7 @@ window.WA.reveal = (function () {
   /* Os blocos entram em lote: quem cruza a dobra junto anima junto,
      com stagger. Evita a cascata desencontrada de um observer por item. */
   function blockReveals(targets) {
-    gsap.set(targets, { autoAlpha: 0, y: 18 });
+    gsap.set(targets, { autoAlpha: 0, y: 18, scale: .985, filter: 'blur(3px)' });
 
     ScrollTrigger.batch(targets, {
       start: 'top 88%',
@@ -92,6 +98,8 @@ window.WA.reveal = (function () {
         gsap.to(batch, {
           autoAlpha: 1,
           y: 0,
+          scale: 1,
+          filter: 'blur(0px)',
           duration: .7,
           ease: 'power2.out',
           stagger: .09,
@@ -109,10 +117,12 @@ window.WA.reveal = (function () {
      um número que ficou acima da dobra travaria em "0" esperando um
      gatilho que não vem. Esse fica como está. */
   function statCounters() {
+    const originals = [];
     document.querySelectorAll('.stat strong').forEach(function (el) {
       if (el.getBoundingClientRect().top < 0) return;
 
       const raw = el.textContent.trim();
+      originals.push([el, raw]);
       const target = parseFloat(raw);
       if (!isFinite(target)) return;
 
@@ -132,6 +142,9 @@ window.WA.reveal = (function () {
         }
       });
     });
+    return function () {
+      originals.forEach(function (pair) { pair[0].textContent = pair[1]; });
+    };
   }
 
   /* Rede final: se por qualquer motivo um bloco continuar invisível
@@ -177,7 +190,7 @@ window.WA.reveal = (function () {
           failsafe(targets);
         }
         heroParallax();
-        statCounters();
+        return statCounters();
       } catch (e) {
         /* Rede de segurança: se algo quebrar no meio, os blocos já
            marcados como invisíveis voltam. Conteúdo escondido por bug
