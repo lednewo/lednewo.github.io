@@ -18,9 +18,6 @@ window.WA.dictionaries = {
     'nav.contact': 'Contato',
     'nav.cta': 'Vamos conversar',
 
-    'hero.available': 'Disponível para projetos',
-    'motion.pause': 'Pausar animação',
-    'motion.play': 'Retomar animação',
     'tech.label': 'Tecnologias',
     'hero.eyebrow': 'Desenvolvedor de aplicativos · Android & iOS',
     'hero.title': 'Aplicativos que aproximam<br> pessoas de <em>lugares reais</em>',
@@ -88,9 +85,6 @@ window.WA.dictionaries = {
     'nav.contact': 'Contact',
     'nav.cta': "Let's talk",
 
-    'hero.available': 'Available for projects',
-    'motion.pause': 'Pause animation',
-    'motion.play': 'Resume animation',
     'tech.label': 'Technologies',
     'hero.eyebrow': 'Mobile app developer · Android & iOS',
     'hero.title': 'Apps that bring people<br> closer to <em>real places</em>',

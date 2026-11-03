@@ -40,6 +40,11 @@ window.WA.i18n = (function () {
       if (typeof value === 'string') el.innerHTML = value;
     });
 
+    document.querySelectorAll('[data-i18n-label]').forEach(function (el) {
+      const value = words[el.getAttribute('data-i18n-label')];
+      if (typeof value === 'string') el.setAttribute('aria-label', value);
+    });
+
     // Cada página diz qual chave é o seu título, via data-* no <body>.
     const titleKey = document.body.dataset.docTitle || 'doc.title';
     const descKey = document.body.dataset.docDesc || 'doc.desc';

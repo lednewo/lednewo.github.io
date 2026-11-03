@@ -31,9 +31,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600&family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
 
   <!-- CSS em camadas ITCSS: a ordem dos links é a ordem da cascata -->
@@ -64,13 +63,7 @@
   <header class="site-header" id="header">
     <div class="wrap header-inner">
       <a class="brand" href="index.html#inicio">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 40 40" fill="none">
-            <circle cx="20" cy="20" r="18.5" stroke="currentColor" stroke-width="1.6" />
-            <path d="M11 15c0 6 4 9 9 9s9-3 9-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
-            <path d="M14 26h12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
-          </svg>
-        </span>
+        <img class="brand-mark" src="assets/img/ws-symbol-small-color.svg" alt="" width="30" height="30">
         <span class="brand-text" translate="no">Wendel Alves</span>
       </a>
 
@@ -174,18 +167,12 @@
   </footer>
 
   <!-- Scripts: cada arquivo só define seu módulo; main.js inicializa, por último -->
-  <!-- GSAP: versão fixa. Se a CDN não responder, o reveal.js cai no
-       IntersectionObserver e a página continua inteira. -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
 
   <script src="assets/js/i18n/dictionary.js" defer></script>
   <script src="assets/js/i18n/translator.js" defer></script>
   <script src="assets/js/modules/theme.js" defer></script>
   <script src="assets/js/modules/navigation.js" defer></script>
   <script src="assets/js/modules/clipboard.js" defer></script>
-  <script src="assets/js/modules/reveal.js" defer></script>
-  <script src="assets/js/modules/effects.js" defer></script>
   <script src="assets/js/modules/year.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>

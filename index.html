@@ -29,9 +29,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600&family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
 
   <!-- CSS em camadas ITCSS: a ordem dos links é a ordem da cascata -->
@@ -62,13 +61,7 @@
   <header class="site-header" id="header">
     <div class="wrap header-inner">
       <a class="brand" href="#inicio">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 40 40" fill="none">
-            <circle cx="20" cy="20" r="18.5" stroke="currentColor" stroke-width="1.6" />
-            <path d="M11 15c0 6 4 9 9 9s9-3 9-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
-            <path d="M14 26h12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
-          </svg>
-        </span>
+        <img class="brand-mark" src="assets/img/ws-symbol-small-color.svg" alt="" width="30" height="30">
         <span class="brand-text" translate="no">Wendel Alves</span>
       </a>
 
@@ -110,10 +103,7 @@
 
     <!-- HERO -->
     <section class="hero" id="inicio">
-      <div class="hero-aurora" aria-hidden="true"><span></span><span></span><span></span></div>
-      <div class="hero-pattern" aria-hidden="true"></div>
       <div class="wrap hero-inner">
-        <p class="availability"><span class="status-dot" aria-hidden="true"></span><span data-i18n="hero.available">Disponível para projetos</span></p>
         <p class="eyebrow" data-i18n="hero.eyebrow">Desenvolvedor de aplicativos · Android &amp; iOS</p>
         <h1 class="hero-title" data-i18n-html="hero.title">Aplicativos que aproximam<br> pessoas de <em>lugares
             reais</em></h1>
@@ -131,21 +121,18 @@
       <div class="wrap">
         <div class="cards">
           <article class="card">
-            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M10 18h4"/></svg>
             <span class="card-label" data-i18n="v1.k">Plataformas</span>
             <h3 data-i18n="v1.t">Android e iOS</h3>
             <p data-i18n="v1.d">Um mesmo aplicativo publicado nas duas lojas, com a mesma experiência e o mesmo cuidado
               nos detalhes.</p>
           </article>
           <article class="card">
-            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 17 6-6 4 3 6-10M14 4h6v6"/><path d="M4 4v16h16"/></svg>
             <span class="card-label" data-i18n="v2.k">Processo</span>
             <h3 data-i18n="v2.t">Da ideia à publicação</h3>
             <p data-i18n="v2.d">Interface, código, backend, testes e o processo de aprovação nas lojas. Acompanho o
               produto inteiro.</p>
           </article>
           <article class="card">
-            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 12 3 3 5-6"/><path d="M12 3 3 7v5c0 5 9 9 9 9s9-4 9-9V7z"/></svg>
             <span class="card-label" data-i18n="v3.k">Prioridade</span>
             <h3 data-i18n="v3.t">Feito para quem usa</h3>
             <p data-i18n="v3.d">Telas simples, textos claros e funcionamento estável mesmo com internet instável —
@@ -198,10 +185,7 @@
             lados da mesma história.</p>
           <p data-i18n="about.p3">Gosto de projetos com propósito claro, interface honesta e código que continua fácil
             de manter depois da primeira versão.</p>
-          <div class="tech-marquee">
-            <button class="marquee-toggle" type="button" aria-pressed="false" data-i18n="motion.pause">Pausar animação</button>
-            <div class="marquee-window"><div class="marquee-track">
-          <ul class="chips" aria-label="Tecnologias">
+          <ul class="chips" aria-label="Tecnologias" data-i18n-label="tech.label">
             <li translate="no">Flutter</li>
             <li translate="no">Dart</li>
             <li translate="no">Android</li>
@@ -210,8 +194,6 @@
             <li>UI Design</li>
             <li translate="no">Git</li>
           </ul>
-            </div></div>
-          </div>
         </div>
         <aside class="about-side">
           <div class="stat"><strong>2</strong><span data-i18n="stat.stores">lojas com app publicado</span></div>
@@ -224,7 +206,7 @@
     <!-- CONTATO -->
     <section class="section contact" id="contato">
       <div class="wrap">
-        <div class="contact-head contact-panel">
+        <div class="contact-head">
           <h2 data-i18n-html="contact.title">Vamos construir algo que<br><em>vale a pena usar</em></h2>
           <p class="section-sub" data-i18n="contact.sub">Tem uma ideia de aplicativo, um projeto em andamento ou quer
             cadastrar seu negócio no Paracauari? Me chame no WhatsApp ou mande um e-mail.</p>
@@ -307,18 +289,12 @@
   </footer>
 
   <!-- Scripts: cada arquivo só define seu módulo; main.js inicializa, por último -->
-  <!-- GSAP: versão fixa. Se a CDN não responder, o reveal.js cai no
-       IntersectionObserver e a página continua inteira. -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
 
   <script src="assets/js/i18n/dictionary.js" defer></script>
   <script src="assets/js/i18n/translator.js" defer></script>
   <script src="assets/js/modules/theme.js" defer></script>
   <script src="assets/js/modules/navigation.js" defer></script>
   <script src="assets/js/modules/clipboard.js" defer></script>
-  <script src="assets/js/modules/reveal.js" defer></script>
-  <script src="assets/js/modules/effects.js" defer></script>
   <script src="assets/js/modules/year.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>

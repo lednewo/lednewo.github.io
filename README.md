@@ -1,6 +1,6 @@
 # Portfólio — Wendel Alves
 
-Site pessoal estático (HTML + CSS + JavaScript, sem build). GSAP e fontes vêm de CDN; o conteúdo continua acessível quando elas não carregam.
+Site pessoal estático (HTML + CSS + JavaScript, sem build). As fontes vêm de CDN; o conteúdo continua acessível quando elas não carregam.
 
 ## Estrutura
 
@@ -21,14 +21,12 @@ assets/
     4-layout/layout.css        wrap, cabeçalho, hero, seções, rodapé
     5-components/controls.css  botões, nav, idioma, tema, menu
     5-components/content.css   cards, ficha do app, lojas, chips, redes
-    6-utilities/motion.css     animações e prefers-reduced-motion
+    6-utilities/motion.css     prefers-reduced-motion
   js/
     i18n/dictionary.js         todos os textos (pt e en)
     i18n/translator.js         aplica o dicionário ao documento
     modules/theme.js           tema claro/escuro
     modules/navigation.js      menu, cabeçalho fixo, scroll spy
-    modules/reveal.js          revelação ao rolar, contadores e fallback
-    modules/effects.js         título por palavras, holofote, magnético e marquee
     modules/clipboard.js       copiar e-mail com confirmação
     modules/year.js            ano do rodapé
     main.js                    ponto de entrada (ordem de inicialização)
@@ -46,12 +44,10 @@ assets/
 | Estrutura das páginas | `index.html` e `paracauari.html` |
 | Tema padrão e preferência salva | script inline do `<head>` nas duas páginas e `assets/js/modules/theme.js` |
 | Fontes carregadas | links Google Fonts nas duas páginas; famílias em `tokens.css` |
-| Aurora, grade de pontos, cabeçalho e painel de contato | `assets/css/4-layout/layout.css` |
-| Cards, ícones, app, números e faixa de tecnologias | `assets/css/5-components/content.css` |
-| Botões, borda em degradê e menu móvel | `assets/css/5-components/controls.css` |
-| Título por palavras, holofote e botões magnéticos | `assets/js/modules/effects.js` |
-| Revelação ao rolar e contagem dos números | `assets/js/modules/reveal.js` |
-| Keyframes e movimento reduzido | `assets/css/6-utilities/motion.css` |
+| Cabeçalho, hero, seções e rodapé | `assets/css/4-layout/layout.css` |
+| Diferenciais, app, números, tecnologias e redes | `assets/css/5-components/content.css` |
+| Botões e menu móvel | `assets/css/5-components/controls.css` |
+| Movimento reduzido | `assets/css/6-utilities/motion.css` |
 
 ### Prévia ao compartilhar o link
 
@@ -68,19 +64,15 @@ assets/
 ## Aparência e movimento
 
 O tema **escuro é o padrão**, independentemente do sistema. O botão do cabeçalho
-alterna para claro e salva a escolha entre páginas. Os títulos usam Inter Tight
-600; os destaques em itálico, Instrument Serif; o corpo, Inter.
+alterna para claro e salva a escolha entre páginas. Títulos e corpo usam Inter;
+o destaque nos títulos é só a cor de acento, sem degradê nem troca de fonte.
 
 Os tons de texto secundário, azul e violeta claros foram ajustados em relação ao plano
 para manter contraste AA (pelo menos 4,5:1) nas superfícies e estados de hover.
-O brilho usa gradientes suaves com animação de `transform`, sem filtros grandes.
 
-`prefers-reduced-motion` desliga as animações e deixa as tecnologias estáticas.
-A faixa também pausa no hover, no foco e pelo botão **Pausar animação**.
-Os efeitos de mouse funcionam apenas com ponteiro preciso e hover em desktop.
-O título é redividido após cada troca de idioma, preservando o itálico.
-Sem GSAP, a revelação usa IntersectionObserver e um failsafe de visibilidade.
-Sem JavaScript, o conteúdo e os links principais continuam visíveis.
+O visual é deliberadamente plano: sem brilhos, degradês ou animações de entrada.
+O único movimento são transições curtas de cor no hover, desligadas por
+`prefers-reduced-motion`. Sem JavaScript, o conteúdo e os links principais continuam visíveis.
 
 ## Publicar no GitHub Pages
 
