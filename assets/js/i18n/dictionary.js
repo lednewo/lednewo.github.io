@@ -51,6 +51,11 @@ window.WA.dictionaries = {
     'app1.f4': 'Horários e rotas de ferries, lanchas e vans entre as cidades',
     'app1.f5': 'Dicas de segurança, gastronomia e história da civilização marajoara',
     'app1.f6': 'Cadastro gratuito para donos de estabelecimentos locais',
+    'app1.terms': 'Termos de Serviço',
+    'terms.doc.title': 'Termos de Serviço — Paracauari · Wendel Alves',
+    'terms.doc.desc': 'Termos de Serviço do aplicativo Paracauari, guia digital de Soure e Salvaterra, na Ilha de Marajó.',
+    'terms.back': 'Voltar ao Paracauari',
+    'terms.langnote': '',
     'store.dl': 'Baixar na',
     'store.get': 'Disponível no',
 
@@ -118,6 +123,11 @@ window.WA.dictionaries = {
     'app1.f4': 'Schedules and routes for ferries, boats and vans between towns',
     'app1.f5': 'Safety tips, local cuisine and the history of the Marajoara civilization',
     'app1.f6': 'Free listing for local business owners',
+    'app1.terms': 'Terms of Service',
+    'terms.doc.title': 'Terms of Service — Paracauari · Wendel Alves',
+    'terms.doc.desc': 'Terms of Service for the Paracauari app, the digital guide to Soure and Salvaterra, on Marajó Island, Brazil.',
+    'terms.back': 'Back to Paracauari',
+    'terms.langnote': 'These terms are available in Portuguese only.',
     'store.dl': 'Download on the',
     'store.get': 'Get it on',
 

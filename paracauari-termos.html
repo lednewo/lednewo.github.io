@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Termos de Serviço — Paracauari · Wendel Alves</title>
+  <meta name="description"
+    content="Termos de Serviço do aplicativo Paracauari, guia digital de Soure e Salvaterra, na Ilha de Marajó.">
+  <meta name="author" content="Wendel Alves">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0B0D12">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Termos de Serviço — Paracauari">
+  <meta property="og:description"
+    content="Termos de Serviço do aplicativo Paracauari.">
+  <!-- Página de app: a prévia do link é sempre o ícone do app.
+       Ícone quadrado pede card "summary"; o "large" corta as bordas. -->
+  <meta property="og:url" content="https://wendelalves.com/paracauari-termos.html">
+  <meta property="og:site_name" content="Wendel Alves">
+  <meta property="og:image" content="https://wendelalves.com/assets/img/paracauari-512.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:image:alt" content="Ícone do aplicativo Paracauari">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://wendelalves.com/assets/img/paracauari-512.png">
+
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS em camadas ITCSS: a ordem dos links é a ordem da cascata -->
+  <link rel="stylesheet" href="assets/css/1-settings/tokens.css">
+  <link rel="stylesheet" href="assets/css/2-generic/reset.css">
+  <link rel="stylesheet" href="assets/css/3-elements/base.css">
+  <link rel="stylesheet" href="assets/css/4-layout/layout.css">
+  <link rel="stylesheet" href="assets/css/5-components/controls.css">
+  <link rel="stylesheet" href="assets/css/5-components/content.css">
+  <link rel="stylesheet" href="assets/css/6-utilities/motion.css">
+
+  <script>
+    // Aplica a escolha antes da primeira pintura. Sem escolha, sempre escuro.
+    var theme = 'dark';
+    try {
+      var savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') theme = savedTheme;
+    } catch (e) { }
+    document.documentElement.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]').content = theme === 'light' ? '#FAFAFB' : '#0B0D12';
+  </script>
+</head>
+
+<body data-doc-title="terms.doc.title" data-doc-desc="terms.doc.desc">
+
+  <a class="skip-link" href="#conteudo" data-i18n="skip">Ir para o conteúdo</a>
+
+  <header class="site-header" id="header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html#inicio">
+        <img class="brand-mark" src="assets/img/ws-symbol-small-color.svg" alt="" width="30" height="30">
+        <span class="brand-text" translate="no">Wendel Alves</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Principal">
+        <a href="index.html#apps" data-i18n="nav.apps">Aplicativos</a>
+        <a href="index.html#sobre" data-i18n="nav.about">Sobre</a>
+        <a href="index.html#contato" data-i18n="nav.contact">Contato</a>
+        <a class="btn btn-sm nav-cta" href="index.html#contato" data-i18n="nav.cta">Vamos
+          conversar</a>
+      </nav>
+
+      <div class="header-tools">
+        <div class="lang-switch" role="group" aria-label="Idioma / Language">
+          <button type="button" data-lang="pt" class="is-active" aria-pressed="true" translate="no">PT</button>
+          <span aria-hidden="true">/</span>
+          <button type="button" data-lang="en" aria-pressed="false" translate="no">EN</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema claro e escuro"
+          aria-pressed="true">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.2" />
+            <path
+              d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4 17 7M7 17l-1.6 1.6" />
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 14.2A8.4 8.4 0 0 1 9.8 4 8.4 8.4 0 1 0 20 14.2z" />
+          </svg>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+
+    <section class="section">
+      <div class="wrap">
+
+        <a class="back-link" href="paracauari.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 5l-7 7 7 7" />
+          </svg>
+          <span data-i18n="terms.back">Voltar ao Paracauari</span>
+        </a>
+
+        <article class="legal" lang="pt-BR">
+          <h1>Termos de Serviço do Paracauari</h1>
+          <p class="legal-meta">Última atualização: 9 de novembro de 2026</p>
+          <p class="legal-meta" data-i18n="terms.langnote"></p>
+
+          <h2>1. Quem somos</h2>
+          <p>O Paracauari é um aplicativo de guia local de Soure e Salvaterra, na Ilha de Marajó (PA), desenvolvido e
+            mantido por W S SOFTWARE, CNPJ 69.751.715/0001-82, de Wendel Alves ("nós").</p>
+          <p>Ao baixar, acessar ou usar o Paracauari, você concorda com estes Termos. Se não concordar, não use o
+            aplicativo.</p>
+
+          <h2>2. O que o aplicativo oferece</h2>
+          <p>O Paracauari reúne, em um só lugar, informações úteis para quem vive ou visita a região, como:</p>
+          <ul>
+            <li>diretório de pousadas, restaurantes, artesãos, guias e outros negócios locais;</li>
+            <li>atrativos turísticos, com dicas de como chegar;</li>
+            <li>agenda de festas, feiras e eventos culturais;</li>
+            <li>horários de travessias (balsas, lanchas e rabetas) e tábua de maré;</li>
+            <li>guia prático com dicas, culinária, história e lendas do Marajó;</li>
+            <li>acompanhamento de eventos em tempo real, como procissões, quando disponível.</li>
+          </ul>
+          <p>O uso do aplicativo é gratuito para o público. Podemos incluir, alterar ou remover funções a qualquer
+            momento.</p>
+
+          <h2>3. As informações são de referência</h2>
+          <p>Trabalhamos para manter o conteúdo correto e atualizado, mas não garantimos que ele esteja sempre completo
+            ou exato. Em especial:</p>
+          <ul>
+            <li><strong>Horários de travessia</strong> podem mudar por decisão das empresas de transporte, condições do
+              rio, clima ou outros motivos. Confirme com o operador antes de viajar.</li>
+            <li><strong>A tábua de maré</strong> é uma estimativa calculada a partir de dados públicos e de um porto de
+              referência. Ela não substitui avisos oficiais e não deve ser usada como única fonte para navegação ou para
+              decidir se é seguro entrar na água.</li>
+            <li><strong>Eventos e localização em tempo real</strong> dependem de terceiros e da conexão de internet, e
+              podem atrasar, falhar ou ser cancelados.</li>
+            <li><strong>Endereços, preços, horários e contatos de negócios</strong> são de responsabilidade de cada
+              estabelecimento.</li>
+          </ul>
+
+          <h2>4. Negócios, parceiros e serviços de terceiros</h2>
+          <p>Os estabelecimentos listados no Paracauari são independentes. Não somos parte de nenhuma negociação,
+            reserva, compra ou prestação de serviço feita entre você e eles, mesmo quando o contato começa pelo
+            aplicativo (por exemplo, pelo WhatsApp).</p>
+          <p>Alguns negócios ou parceiros podem ter destaque no aplicativo por meio de acordos comerciais ou
+            parcerias institucionais. Esse destaque não é uma recomendação nem uma garantia sobre a qualidade do
+            serviço.</p>
+          <p>O aplicativo pode abrir links ou serviços de terceiros (como WhatsApp, mapas e sites externos), que têm
+            seus próprios termos e políticas.</p>
+
+          <h2>5. Cadastro de negócios</h2>
+          <p>Donos de estabelecimentos podem solicitar a inclusão do seu negócio no aplicativo. Quem envia as
+            informações declara que elas são verdadeiras e que tem autorização para divulgar nome, imagens, contatos e
+            demais dados do negócio. Podemos revisar, editar ou recusar cadastros, e remover conteúdo que esteja
+            incorreto, desatualizado ou que viole estes Termos ou a lei.</p>
+
+          <h2>6. Uso adequado</h2>
+          <p>Ao usar o Paracauari, você se compromete a não:</p>
+          <ul>
+            <li>usar o aplicativo para fins ilegais ou para prejudicar outras pessoas;</li>
+            <li>enviar informações falsas, ofensivas ou que violem direitos de terceiros;</li>
+            <li>tentar acessar áreas restritas, copiar em massa o conteúdo ou interferir no funcionamento do
+              aplicativo e dos seus servidores.</li>
+          </ul>
+
+          <h2>7. Propriedade intelectual</h2>
+          <p>O nome Paracauari, o ícone, o design, os textos e o código do aplicativo pertencem a nós ou são usados com
+            autorização. Marcas, fotos e conteúdos de negócios e parceiros pertencem aos seus respectivos donos. Você
+            pode usar o aplicativo para fins pessoais, mas não pode copiar, vender ou redistribuir o seu conteúdo sem
+            autorização.</p>
+
+          <h2>8. Disponibilidade e responsabilidade</h2>
+          <p>O aplicativo é oferecido "no estado em que se encontra". Ele pode ficar fora do ar, apresentar erros ou ter
+            funções interrompidas, inclusive por falhas de internet, de lojas de aplicativos ou de serviços de terceiros.</p>
+          <p>Na medida permitida pela lei, não nos responsabilizamos por prejuízos decorrentes de informações
+            desatualizadas, de serviços prestados por terceiros ou de decisões tomadas apenas com base no conteúdo do
+            aplicativo. Nada nestes Termos limita os direitos que você tem pelo Código de Defesa do Consumidor.</p>
+
+          <h2>9. Privacidade</h2>
+          <p>O tratamento de dados pessoais no Paracauari segue a Lei Geral de Proteção de Dados (Lei nº 13.709/2018) e
+            é descrito na Política de Privacidade do aplicativo, disponível na página do Paracauari na Google Play e na
+            App Store.</p>
+
+          <h2>10. Alterações nestes Termos</h2>
+          <p>Podemos atualizar estes Termos para refletir mudanças no aplicativo ou na legislação. A data da última
+            atualização fica no topo desta página. Se você continuar usando o aplicativo depois de uma alteração, estará
+            de acordo com a nova versão.</p>
+
+          <h2>11. Lei aplicável</h2>
+          <p>Estes Termos são regidos pelas leis da República Federativa do Brasil. Eventuais conflitos serão resolvidos
+            no foro do domicílio do usuário, conforme o Código de Defesa do Consumidor.</p>
+
+          <h2>12. Contato</h2>
+          <p>Dúvidas, sugestões ou pedidos sobre estes Termos podem ser enviados para
+            <a href="mailto:wendel.alvessousa02@gmail.com">wendel.alvessousa02@gmail.com</a>.</p>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p class="footer-brand" translate="no">Wendel Alves</p>
+      <p class="footer-note" data-i18n="footer.note">Aplicativos móveis para Android e iOS · Ilha de Marajó, Pará —
+        Brasil</p>
+      <p class="footer-copy">© <span id="year">2026</span> Wendel Alves · <span translate="no">W S SOFTWARE · CNPJ 69.751.715/0001-82</span></p>
+    </div>
+  </footer>
+
+  <!-- Scripts: cada arquivo só define seu módulo; main.js inicializa, por último -->
+
+  <script src="assets/js/i18n/dictionary.js" defer></script>
+  <script src="assets/js/i18n/translator.js" defer></script>
+  <script src="assets/js/modules/theme.js" defer></script>
+  <script src="assets/js/modules/navigation.js" defer></script>
+  <script src="assets/js/modules/clipboard.js" defer></script>
+  <script src="assets/js/modules/year.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+
+</html>
